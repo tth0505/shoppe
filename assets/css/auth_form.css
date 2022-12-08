@@ -1,9 +1,45 @@
+/* Modal */ 
+.modal {
+    position: relative;
+    display: none;
+}
+
+.modal.show-signin{
+    display: flex;
+}
+
+.modal__overlay {
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.53);
+    z-index: 1000;
+}
+
+.modal__body {
+    position: relative;
+    border: none;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    outline: none;
+    padding: 0px;
+    width: 300px;
+    margin: 80px auto;
+    animation: overlayFadeIn ease .7s;
+}
+
+.modal__form {
+    background: rgb(248, 248, 248);
+    display: flex;
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+}
+
 .auth-form {
     width: 300px;
     background-color: var(--white-color);
     border-radius: 3px;
     padding: 0 24px;
-    display: none;
 }
 
 .auth-form__header {
@@ -20,9 +56,12 @@
     cursor: text;
 }
 
-.auth-form__close {
+.auth-form__close-register,
+.auth-form__close-login {
     font-size: 2rem;
     color: var(--text-color);
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
@@ -36,13 +75,13 @@
 
 .auth-form__group {
     display: flex;
-    position: relative;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .auth-form__input {
-    width: 100%;
+    /* width: 100%; */
     height: 30px;
-    margin-bottom: 20px;
     padding: 0 14px;
     font-size: 1.5rem;
     font-weight: 200;
@@ -51,24 +90,23 @@
     outline: none;
 }
 
-.auth-form__input:focus {
+.auth-form__input:hover {
     border-color:#777;
 }
 
-.auth-form_show-btn{
-    position: absolute;
-    top: 9px;
-    right: 0;
-    padding: 0 14px;
-    font-size: 1.5rem;
-    color: #777;
-    cursor: pointer;
-    display: block;
+.auth-form__group.invalid .auth-form__input {
+    border-color: #f33a58;
 }
 
-/* .show-btn i.hide-btn::before{
-content: "f070";
-} */
+.auth-form__group.invalid .form-message {
+    color: #f33a58;
+}
+
+.form-message {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    padding: 4px 0 0;
+}
 
 .auth-form__controls {
     margin-top: 5px;
@@ -198,12 +236,24 @@ content: "f070";
     cursor: text;
 }
 
-.auth-form__footer-link {
+.btn__register,
+.btn__login {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 400;
+    cursor: pointer;
 }
 
-/* aaaaaaaaaaaaaaaaaaaaa */
+@keyframes overlayFadeIn {
+from{
+    opacity: 0;
+    transform: translateY(-100px);
+}
+to{
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
 
 
