@@ -15,6 +15,14 @@
     z-index: 1000;
 }
 
+.modal__overlay-mobile {
+    position: fixed;
+    inset: 0px;
+    background: rgba(0, 0, 0, 0.53);
+    z-index: 1;
+    display: none;
+}
+
 .modal__body {
     position: relative;
     border: none;
