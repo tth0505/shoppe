@@ -653,7 +653,7 @@
     font-size: 1.8rem;
 }
 
-.header__bars-checkbox:checked ~ .modal__overlay {
+.header__bars-checkbox:checked ~ .modal__overlay-mobile {
     display: block;
 }
 
